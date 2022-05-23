@@ -26,6 +26,9 @@ let operator = undefined;
 let newOperator = undefined;
 let result = 0;
 
+// If the operator is undefined the numbers enter become the first set of numbers
+// If an operator has been stored already, the numbers entered become seoncd set
+// Numbers go into an array, and are then joined together to get full number
 function addNumber() {
   if (operator === undefined) {
     num1.push(+this.textContent);
@@ -34,13 +37,16 @@ function addNumber() {
   } else {
     num2.push(+this.textContent);
     b = +num2.join("");
-    display.textContent = `${num2.join("")}`;
+    display.textContent = `${a} ${operator} ${num2.join("")}`;
   }
 }
 
+// Called when a operator is clicked
+// Logic determines if the operator is being stringed
 function changeOperator() {
   if (operator === undefined) {
     operator = this.textContent;
+    display.textContent = `${a} ${operator}`;
   } else {
     newOperator = this.textContent;
     calculate();
@@ -54,11 +60,13 @@ function changeOperator() {
   }
 }
 
+// Shows the result if user presses equals button
 function showResult() {
   calculate();
   display.textContent = result;
 }
 
+// Checks what the operator is and calls math function
 function calculate() {
   if (operator === "*") {
     result = multiply(a, b);
@@ -72,7 +80,8 @@ function calculate() {
     result = modulo(a, b);
   }
 }
-
+// ---------------------------------------------------------------------------------
+// These are our math logic functions, called depending on operator
 function multiply(a, b) {
   return a * b;
 }
@@ -92,7 +101,8 @@ function divide(a, b) {
 function modulo(a, b) {
   return a % b;
 }
-
+// ---------------------------------------------------------------------------------
+// Resets the display and all variables to 0 or undefined. Called when AC is clicked
 function resetDisplay() {
   num1 = [];
   num2 = [];
