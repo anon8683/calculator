@@ -1,24 +1,13 @@
 const display = document.querySelector("#display");
+const operators = document.querySelectorAll(".operator");
+const numbers = document.querySelectorAll(".number");
 const buttons = document.querySelectorAll("button");
 
-document.querySelector("#zero").addEventListener("click", addNumber);
-document.querySelector("#one").addEventListener("click", addNumber);
-document.querySelector("#two").addEventListener("click", addNumber);
-document.querySelector("#three").addEventListener("click", addNumber);
-document.querySelector("#four").addEventListener("click", addNumber);
-document.querySelector("#five").addEventListener("click", addNumber);
-document.querySelector("#six").addEventListener("click", addNumber);
-document.querySelector("#seven").addEventListener("click", addNumber);
-document.querySelector("#eight").addEventListener("click", addNumber);
-document.querySelector("#nine").addEventListener("click", addNumber);
+// Add event listeners to buttons
+operators.forEach((item) => item.addEventListener("click", changeOperator));
+numbers.forEach((item) => item.addEventListener("click", addNumber));
 document.querySelector("#ac").addEventListener("click", resetDisplay);
-document.querySelector("#divide").addEventListener("click", changeOperator);
-document.querySelector("#multiply").addEventListener("click", changeOperator);
-document.querySelector("#subtract").addEventListener("click", changeOperator);
-document.querySelector("#plus").addEventListener("click", changeOperator);
-document.querySelector("#modulo").addEventListener("click", changeOperator);
 document.querySelector("#equals").addEventListener("click", showResult);
-document.querySelector("#decimal").addEventListener("click", addNumber);
 
 let num1 = [];
 let num2 = [];
