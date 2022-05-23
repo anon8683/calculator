@@ -1,4 +1,5 @@
 const display = document.querySelector("#display");
+const buttons = document.querySelectorAll("button");
 
 document.querySelector("#zero").addEventListener("click", addNumber);
 document.querySelector("#one").addEventListener("click", addNumber);
@@ -17,6 +18,7 @@ document.querySelector("#subtract").addEventListener("click", changeOperator);
 document.querySelector("#plus").addEventListener("click", changeOperator);
 document.querySelector("#modulo").addEventListener("click", changeOperator);
 document.querySelector("#equals").addEventListener("click", showResult);
+document.querySelector("#decimal").addEventListener("click", addNumber);
 
 let num1 = [];
 let num2 = [];
@@ -31,11 +33,11 @@ let result = 0;
 // Numbers go into an array, and are then joined together to get full number
 function addNumber() {
   if (operator === undefined) {
-    num1.push(+this.textContent);
+    num1.push(this.textContent);
     a = +num1.join("");
     display.textContent = num1.join("");
   } else {
-    num2.push(+this.textContent);
+    num2.push(this.textContent);
     b = +num2.join("");
     display.textContent = `${a} ${operator} ${num2.join("")}`;
   }
@@ -50,6 +52,7 @@ function changeOperator() {
   } else {
     newOperator = this.textContent;
     calculate();
+    rounded();
     display.textContent = `${result} ${newOperator}`;
     a = result;
     b = 0;
@@ -60,9 +63,16 @@ function changeOperator() {
   }
 }
 
+function rounded() {
+  if (result % 1 != 0) {
+    result = +result.toFixed(2);
+  }
+}
+
 // Shows the result if user presses equals button
 function showResult() {
   calculate();
+  rounded();
   display.textContent = `${a} ${operator} ${b} = ${result}`;
 }
 
