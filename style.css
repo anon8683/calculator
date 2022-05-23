@@ -25,6 +25,8 @@ body {
   padding: 5px;
   padding-bottom: 8px;
   border-radius: 15px;
+  border: 5px solid black;
+  box-shadow: 5px 5px #000000;
 }
 
 #display {
@@ -32,9 +34,8 @@ body {
   flex-wrap: wrap;
   font-size: 3rem;
   justify-content: flex-end;
-  max-width: 390px;
+  max-width: 100%;
   margin: 10px;
-  align-items: center;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 1;
@@ -42,6 +43,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   background-color: rgb(194, 199, 199);
+  border: 3px solid black;
 }
 
 .hello {
@@ -64,7 +66,8 @@ button {
 }
 
 button:active {
-  background-color: rgb(120, 122, 122);
+  background-color: rgb(250, 190, 26);
+  transform: translateY(2px);
 }
 
 footer {
@@ -72,4 +75,23 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+.operator,
+#negative {
+  background-color: orange;
+}
+
+.number {
+  background-color: blanchedalmond;
+}
+
+#equals {
+  background-color: greenyellow;
+}
+
+#ac,
+#negative,
+#modulo {
+  background-color: rgb(102, 111, 238);
 }

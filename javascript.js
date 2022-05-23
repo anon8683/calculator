@@ -75,9 +75,13 @@ function rounded() {
 
 // Shows the result if user presses equals button
 function showResult() {
-  calculate();
-  rounded();
-  display.textContent = `${a} ${operator} ${b} = ${result}`;
+  if (b === 0) {
+    display.textContent = a;
+  } else {
+    calculate();
+    rounded();
+    display.textContent = `${a} ${operator} ${b} = ${result}`;
+  }
 }
 
 // Checks what the operator is and calls math function
