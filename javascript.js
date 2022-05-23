@@ -50,7 +50,7 @@ function changeOperator() {
   } else {
     newOperator = this.textContent;
     calculate();
-    display.textContent = result;
+    display.textContent = `${result} ${newOperator}`;
     a = result;
     b = 0;
     num1 = [];
@@ -63,7 +63,7 @@ function changeOperator() {
 // Shows the result if user presses equals button
 function showResult() {
   calculate();
-  display.textContent = result;
+  display.textContent = `${a} ${operator} ${b} = ${result}`;
 }
 
 // Checks what the operator is and calls math function

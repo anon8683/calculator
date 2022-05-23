@@ -9,21 +9,31 @@ body {
 .container {
   display: grid;
   grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(6, 100px);
-  height: 600px;
+  grid-template-rows: repeat(7, 100px);
+  grid-auto-rows: minmax(50px, auto);
+  height: 700px;
   width: 400px;
-  background-color: rgb(214, 210, 210);
+  background-color: rgb(161, 168, 168);
   font-size: 2rem;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 #display {
   display: flex;
   flex-wrap: wrap;
+  font-size: 3rem;
   justify-content: flex-end;
   max-width: 390px;
+  margin: 10px;
   align-items: center;
   grid-column-start: 1;
   grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(194, 199, 199);
 }
 
 #zero {
@@ -33,4 +43,6 @@ body {
 
 button {
   font-size: 2rem;
+  margin: 2px;
+  border-radius: 15px;
 }
