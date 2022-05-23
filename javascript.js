@@ -1,13 +1,13 @@
 const display = document.querySelector("#display");
 const operators = document.querySelectorAll(".operator");
 const numbers = document.querySelectorAll(".number");
-const buttons = document.querySelectorAll("button");
 
 // Add event listeners to buttons
 operators.forEach((item) => item.addEventListener("click", changeOperator));
 numbers.forEach((item) => item.addEventListener("click", addNumber));
 document.querySelector("#ac").addEventListener("click", resetDisplay);
 document.querySelector("#equals").addEventListener("click", showResult);
+document.querySelector("#negative").addEventListener("click", negative);
 
 let num1 = [];
 let num2 = [];
@@ -16,6 +16,7 @@ let b = 0;
 let operator = undefined;
 let newOperator = undefined;
 let result = 0;
+let negativeNumber = false;
 
 // If the operator is undefined the numbers enter become the first set of numbers
 // If an operator has been stored already, the numbers entered become seoncd set
@@ -29,6 +30,19 @@ function addNumber() {
     num2.push(this.textContent);
     b = +num2.join("");
     display.textContent = `${a} ${operator} ${num2.join("")}`;
+  }
+}
+
+//If +/- button is pressed, add a "-" to the first element of our number arrays
+function negative() {
+  negativeNumber = true;
+  if (negativeNumber === true && a === 0) {
+    num1.unshift("-");
+    negativeNumber = false;
+  }
+  if (negativeNumber === true && a != 0) {
+    num2.unshift("-");
+    negativeNumber = false;
   }
 }
 
