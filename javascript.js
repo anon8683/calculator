@@ -16,13 +16,14 @@ document.querySelector("#multiply").addEventListener("click", changeOperator);
 document.querySelector("#subtract").addEventListener("click", changeOperator);
 document.querySelector("#plus").addEventListener("click", changeOperator);
 document.querySelector("#modulo").addEventListener("click", changeOperator);
-document.querySelector("#equals").addEventListener("click", calculate);
+document.querySelector("#equals").addEventListener("click", showResult);
 
 let num1 = [];
 let num2 = [];
 let a = 0;
 let b = 0;
 let operator = undefined;
+let newOperator = undefined;
 let result = 0;
 
 function addNumber() {
@@ -33,13 +34,29 @@ function addNumber() {
   } else {
     num2.push(+this.textContent);
     b = +num2.join("");
-    display.textContent = `${num1.join("")} ${operator} ${num2.join("")}`;
+    display.textContent = `${num2.join("")}`;
   }
 }
 
 function changeOperator() {
-  operator = this.textContent;
-  display.textContent = `${num1.join("")} ${operator}`;
+  if (operator === undefined) {
+    operator = this.textContent;
+  } else {
+    newOperator = this.textContent;
+    calculate();
+    display.textContent = result;
+    a = result;
+    b = 0;
+    num1 = [];
+    num2 = [];
+    operator = newOperator;
+    newOperator = undefined;
+  }
+}
+
+function showResult() {
+  calculate();
+  display.textContent = result;
 }
 
 function calculate() {
@@ -54,9 +71,6 @@ function calculate() {
   } else if (operator === "%") {
     result = modulo(a, b);
   }
-  display.textContent = `${num1.join("")} ${operator} ${num2.join(
-    ""
-  )} = ${result}`;
 }
 
 function multiply(a, b) {
@@ -82,6 +96,8 @@ function modulo(a, b) {
 function resetDisplay() {
   num1 = [];
   num2 = [];
+  a = 0;
+  b = 0;
   operator = undefined;
   result = 0;
   display.textContent = 0;
