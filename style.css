@@ -2,12 +2,15 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
   box-sizing: border-box;
   font-family: "Noto Sans", sans-serif;
   font-weight: 900;
+  background-color: grey;
 }
 
 .container {
@@ -62,4 +65,11 @@ button {
 
 button:active {
   background-color: rgb(120, 122, 122);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

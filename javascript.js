@@ -19,7 +19,7 @@ let result = 0;
 let negativeNumber = false;
 
 // If the operator is undefined the numbers enter become the first set of numbers
-// If an operator has been stored already, the numbers entered become seoncd set
+// If an operator has been stored already, the numbers entered become second set
 // Numbers go into an array, and are then joined together to get full number
 function addNumber() {
   if (operator === undefined) {
@@ -66,6 +66,7 @@ function changeOperator() {
   }
 }
 
+// If the result is not a whole interger, round it to 2 decimal places
 function rounded() {
   if (result % 1 != 0) {
     result = +result.toFixed(2);
