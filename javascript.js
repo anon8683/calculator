@@ -134,3 +134,76 @@ function resetDisplay() {
   result = 0;
   display.textContent = 0;
 }
+
+// ---------------------------------------------------------------------------------
+// If backspace is pressed, this function is called and pop() array, then display new number
+function removeDisplay() {
+  if (operator === undefined) {
+    num1.pop();
+    a = +num1.join("");
+    display.textContent = num1.join("");
+  } else {
+    num2.pop();
+    b = +num2.join("");
+    display.textContent = `${a} ${operator} ${num2.join("")}`;
+  }
+}
+
+// Simulates clicks when keys are pressed
+// Did this for simplicity
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Backspace") {
+    removeDisplay();
+  }
+  if (e.key === "0") {
+    document.getElementById("zero").click();
+  }
+  if (e.key === "1") {
+    document.getElementById("one").click();
+  }
+  if (e.key === "2") {
+    document.getElementById("two").click();
+  }
+  if (e.key === "3") {
+    document.getElementById("three").click();
+  }
+  if (e.key === "4") {
+    document.getElementById("four").click();
+  }
+  if (e.key === "5") {
+    document.getElementById("five").click();
+  }
+  if (e.key === "6") {
+    document.getElementById("six").click();
+  }
+  if (e.key === "7") {
+    document.getElementById("seven").click();
+  }
+  if (e.key === "8") {
+    document.getElementById("eight").click();
+  }
+  if (e.key === "9") {
+    document.getElementById("nine").click();
+  }
+  if (e.key === "%") {
+    document.getElementById("modulo").click();
+  }
+  if (e.key === "/") {
+    document.getElementById("divide").click();
+  }
+  if (e.key === "*") {
+    document.getElementById("multiply").click();
+  }
+  if (e.key === "-") {
+    document.getElementById("subtract").click();
+  }
+  if (e.key === "+") {
+    document.getElementById("plus").click();
+  }
+  if (e.key === ".") {
+    document.getElementById("decimal").click();
+  }
+  if (e.key === "=" || e.key === "Enter") {
+    document.getElementById("equals").click();
+  }
+});
