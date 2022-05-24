@@ -203,6 +203,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === ".") {
     document.getElementById("decimal").click();
   }
+  if (e.key === "c") {
+    document.getElementById("ac").click();
+  }
   if (e.key === "=" || e.key === "Enter") {
     document.getElementById("equals").click();
   }
